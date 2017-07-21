@@ -670,6 +670,22 @@ AdaptiveNamespaceStart
                 ComPtr<IUIElement> newControl;
                 elementRenderer->Render(element, renderContext, renderArgs, &newControl);
                 XamlHelpers::AppendXamlElementToPanel(newControl.Get(), parentPanel);
+
+                /*
+                IAdaptiveHeight* elementHeight;
+                THROW_IF_FAILED(element->get_Height(&elementHeight));
+                ABI::AdaptiveCards::XamlCardRenderer::HeightType heightType;
+                THROW_IF_FAILED(elementHeight->get_HeightType(&heightType));
+                if (heightType == ABI::AdaptiveCards::XamlCardRenderer::HeightType::Stretch)
+                {
+                    XamlHelpers::AddRow(newControl.Get(), parentGrid, {1, GridUnitType::GridUnitType_Star});
+                }
+                else
+                {
+                    XamlHelpers::AddRow(newControl.Get(), parentGrid, {1, GridUnitType::GridUnitType_Auto});
+                }
+                */
+
                 childCreatedCallback(newControl.Get());
             }
             else
@@ -1073,6 +1089,10 @@ AdaptiveNamespaceStart
         // Buttons go into body panel, show cards go into outer panel so they're not inside the padding
         XamlHelpers::AppendXamlElementToPanel(actionsPanel.Get(), bodyPanel);
         XamlHelpers::AppendXamlElementToPanel(showCardsStackPanel.Get(), parentPanel);
+        // XamlHelpers::AddRow(actionsPanel.Get(), parentGrid, { 1, GridUnitType::GridUnitType_Auto });
+
+        // TODO: EdgeToEdge show cards should not go in "parentPanel", which has margins applied to it from the adaptive card options
+        // XamlHelpers::AddRow(showCardsStackPanel.Get(), parentGrid, { 1, GridUnitType::GridUnitType_Auto });
     }
 
     _Use_decl_annotations_

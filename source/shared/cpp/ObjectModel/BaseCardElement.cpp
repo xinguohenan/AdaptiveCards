@@ -66,6 +66,16 @@ void BaseCardElement::SetSpacing(const Spacing value)
     m_spacing = value;
 }
 
+Height BaseCardElement::GetHeight() const
+{
+    return m_height;
+}
+
+void BaseCardElement::SetHeight(const Height value)
+{
+    m_height = value;
+}
+
 std::string BaseCardElement::GetId() const
 {
     return m_id;
@@ -94,6 +104,7 @@ Json::Value BaseCardElement::SerializeToJsonValue()
     root[AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey::Spacing)] = SpacingToString(GetSpacing());
     root[AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey::Separator)] = GetSeparator();
     root[AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey::Id)] = GetId();
+    root[AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey::Height)] = Height::SerializeToString(GetHeight());
 
     /* Issue #629 to make separator an object
     Json::Value jsonSeparator;
@@ -102,7 +113,6 @@ Json::Value BaseCardElement::SerializeToJsonValue()
 
     root[AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey::Separator)] = jsonSeparator;
     */
-
     return root;
 }
 
