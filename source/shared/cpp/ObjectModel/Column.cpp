@@ -13,10 +13,10 @@ Column::Column() : BaseCardElement(CardElementType::Column), m_width("Auto")
 Column::Column(
     Spacing spacing,
     bool separation,
-    std::string size,
+    std::string width,
     ContainerStyle style,
     std::vector<std::shared_ptr<BaseCardElement>>& items) :
-    BaseCardElement(CardElementType::Column, spacing, separation), m_width(size), m_style(style), m_items(items)
+    BaseCardElement(CardElementType::Column, spacing, separation), m_width(width), m_style(style), m_items(items)
 {
     PopulateKnownPropertiesSet();
 }

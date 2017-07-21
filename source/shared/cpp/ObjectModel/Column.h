@@ -10,8 +10,8 @@ class Column : public BaseCardElement
 {
 public:
     Column();
-    Column(Spacing spacing, bool separation, std::string size, ContainerStyle style);
-    Column(Spacing spacing, bool separation, std::string size, ContainerStyle style, std::vector<std::shared_ptr<BaseCardElement>>& items);
+    Column(Spacing spacing, bool separation, std::string width, ContainerStyle style);
+    Column(Spacing spacing, bool separation, std::string width, ContainerStyle style, std::vector<std::shared_ptr<BaseCardElement>>& items);
 
     virtual std::string Serialize();
     virtual Json::Value SerializeToJsonValue();
@@ -45,6 +45,7 @@ private:
 
     std::string m_width;
     std::vector<std::shared_ptr<AdaptiveSharedNamespace::BaseCardElement>> m_items;
+    static const std::unordered_map<CardElementType, std::function<std::shared_ptr<BaseCardElement>(const Json::Value&)>, EnumHash> CardElementParsers; // I dont know what this is used for
     std::shared_ptr<BaseActionElement> m_selectAction;
     ContainerStyle m_style;
 };
