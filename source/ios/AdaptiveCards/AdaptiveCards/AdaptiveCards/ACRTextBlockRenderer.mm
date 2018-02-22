@@ -188,9 +188,9 @@ rootViewController:(UIViewController *)vc
 {
     switch (weight) {
         case TextWeight::Default:
-            return @0;
+            return @-1;
         case TextWeight::Lighter:
-            return @1;
+            return @0;
         case TextWeight::Bolder:
             return @-2;
     }
