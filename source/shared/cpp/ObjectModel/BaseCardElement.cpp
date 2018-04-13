@@ -104,7 +104,7 @@ Json::Value BaseCardElement::SerializeToJsonValue()
     root[AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey::Spacing)] = SpacingToString(GetSpacing());
     root[AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey::Separator)] = GetSeparator();
     root[AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey::Id)] = GetId();
-    root[AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey::Height)] = Height::SerializeToString(GetHeight());
+    root[AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey::Height)] = HeightTypeToString(GetHeight().GetHeightType());
 
     /* Issue #629 to make separator an object
     Json::Value jsonSeparator;

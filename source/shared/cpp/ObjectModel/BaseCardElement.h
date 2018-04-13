@@ -84,9 +84,10 @@ std::shared_ptr<T> BaseCardElement::Deserialize(const Json::Value& json)
             ParseUtil::GetEnumValue<Spacing>(json, AdaptiveCardSchemaKey::Spacing, Spacing::Default, SpacingFromString)); 
     baseCardElement->SetSeparator(ParseUtil::GetBool(json, AdaptiveCardSchemaKey::Separator, false));
     baseCardElement->SetId(ParseUtil::GetString(json, AdaptiveCardSchemaKey::Id));
-    baseCardElement->SetHeight(
-        ParseUtil::ExtractJsonValueAndMergeWithDefault<Height>(json, AdaptiveCardSchemaKey::Height, Height(), Height::Deserialize));
-  
+
+    baseCardElement->SetHeight(Height::Deserialize(json));
+    // baseCardElement->SetHeight(ParseUtil::ExtractJsonValueAndMergeWithDefault<Height>(json, AdaptiveCardSchemaKey::Height, Height(), Height::Deserialize));
+
     /* Issue #629 to make separator an object
     Json::Value separatorJson = json.get(AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey::Separator), Json::Value());
     if (!separatorJson.empty())
