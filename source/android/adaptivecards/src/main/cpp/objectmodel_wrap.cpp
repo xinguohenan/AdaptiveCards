@@ -680,6 +680,7 @@ namespace Swig {
 #include <memory>
 #include <time.h>
 #include "../../../shared/cpp/ObjectModel/Enums.h"
+#include "../../../shared/cpp/ObjectModel/Height.h"
 #include "../../../shared/cpp/ObjectModel/BaseCardElement.h"
 #include "../../../shared/cpp/ObjectModel/BaseActionElement.h"
 #include "../../../shared/cpp/ObjectModel/BaseInputElement.h"
@@ -692,7 +693,6 @@ namespace Swig {
 #include "../../../shared/cpp/ObjectModel/ColumnSet.h"
 #include "../../../shared/cpp/ObjectModel/Fact.h"
 #include "../../../shared/cpp/ObjectModel/FactSet.h"
-#include "../../../shared/cpp/ObjectModel/Height.h"
 #include "../../../shared/cpp/ObjectModel/ChoiceInput.h"
 #include "../../../shared/cpp/ObjectModel/ChoiceSetInput.h"
 #include "../../../shared/cpp/ObjectModel/DateInput.h"
@@ -4245,6 +4245,160 @@ SWIGEXPORT jint JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectMode
 }
 
 
+SWIGEXPORT jlong JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_new_1Height_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  AdaptiveCards::Height *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (AdaptiveCards::Height *)new AdaptiveCards::Height();
+  
+  *(std::shared_ptr<  AdaptiveCards::Height > **)&jresult = result ? new std::shared_ptr<  AdaptiveCards::Height >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_new_1Height_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jlong jresult = 0 ;
+  AdaptiveCards::HeightType arg1 ;
+  AdaptiveCards::Height *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (AdaptiveCards::HeightType)jarg1; 
+  result = (AdaptiveCards::Height *)new AdaptiveCards::Height(arg1);
+  
+  *(std::shared_ptr<  AdaptiveCards::Height > **)&jresult = result ? new std::shared_ptr<  AdaptiveCards::Height >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_Height_1GetHeightType(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jint jresult = 0 ;
+  AdaptiveCards::Height *arg1 = (AdaptiveCards::Height *) 0 ;
+  std::shared_ptr< AdaptiveCards::Height > *smartarg1 = 0 ;
+  AdaptiveCards::HeightType result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  AdaptiveCards::Height > **)&jarg1;
+  arg1 = (AdaptiveCards::Height *)(smartarg1 ? smartarg1->get() : 0); 
+  result = (AdaptiveCards::HeightType)(arg1)->GetHeightType();
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_Height_1SetHeightType(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  AdaptiveCards::Height *arg1 = (AdaptiveCards::Height *) 0 ;
+  AdaptiveCards::HeightType arg2 ;
+  std::shared_ptr< AdaptiveCards::Height > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  AdaptiveCards::Height > **)&jarg1;
+  arg1 = (AdaptiveCards::Height *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (AdaptiveCards::HeightType)jarg2; 
+  (arg1)->SetHeightType(arg2);
+}
+
+
+SWIGEXPORT jstring JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_Height_1Serialize(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jstring jresult = 0 ;
+  AdaptiveCards::Height *arg1 = (AdaptiveCards::Height *) 0 ;
+  std::shared_ptr< AdaptiveCards::Height > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  AdaptiveCards::Height > **)&jarg1;
+  arg1 = (AdaptiveCards::Height *)(smartarg1 ? smartarg1->get() : 0); 
+  result = (arg1)->Serialize();
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_Height_1SerializeToJsonValue(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  AdaptiveCards::Height *arg1 = (AdaptiveCards::Height *) 0 ;
+  std::shared_ptr< AdaptiveCards::Height > *smartarg1 = 0 ;
+  Json::Value result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  AdaptiveCards::Height > **)&jarg1;
+  arg1 = (AdaptiveCards::Height *)(smartarg1 ? smartarg1->get() : 0); 
+  result = (arg1)->SerializeToJsonValue();
+  *(Json::Value **)&jresult = new Json::Value((const Json::Value &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_Height_1Deserialize(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  Json::Value *arg1 = 0 ;
+  AdaptiveCards::Height result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(Json::Value **)&jarg1;
+  if (!arg1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Json::Value const & reference is null");
+    return 0;
+  } 
+  result = AdaptiveCards::Height::Deserialize((Json::Value const &)*arg1);
+  *(std::shared_ptr<  AdaptiveCards::Height > **)&jresult = new std::shared_ptr<  AdaptiveCards::Height >(new AdaptiveCards::Height((AdaptiveCards::Height &)result)); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_Height_1DeserializeFromString(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+  jlong jresult = 0 ;
+  std::string *arg1 = 0 ;
+  std::shared_ptr< AdaptiveCards::Height > result;
+  
+  (void)jenv;
+  (void)jcls;
+  if(!jarg1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  }
+  const char *arg1_pstr = (const char *)jenv->GetStringUTFChars(jarg1, 0); 
+  if (!arg1_pstr) return 0;
+  std::string arg1_str(arg1_pstr);
+  arg1 = &arg1_str;
+  jenv->ReleaseStringUTFChars(jarg1, arg1_pstr); 
+  result = AdaptiveCards::Height::DeserializeFromString((std::string const &)*arg1);
+  *(std::shared_ptr< AdaptiveCards::Height > **)&jresult = result ? new std::shared_ptr< AdaptiveCards::Height >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_delete_1Height(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  AdaptiveCards::Height *arg1 = (AdaptiveCards::Height *) 0 ;
+  std::shared_ptr< AdaptiveCards::Height > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  
+  smartarg1 = *(std::shared_ptr<  AdaptiveCards::Height > **)&jarg1;
+  arg1 = (AdaptiveCards::Height *)(smartarg1 ? smartarg1->get() : 0); 
+  (void)arg1; delete smartarg1;
+}
+
+
 SWIGEXPORT jlong JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_new_1BaseCardElement_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2, jboolean jarg3) {
   jlong jresult = 0 ;
   AdaptiveCards::CardElementType arg1 ;
@@ -4448,35 +4602,37 @@ SWIGEXPORT jlong JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectMod
   jlong jresult = 0 ;
   AdaptiveCards::BaseCardElement *arg1 = (AdaptiveCards::BaseCardElement *) 0 ;
   std::shared_ptr< AdaptiveCards::BaseCardElement const > *smartarg1 = 0 ;
-  Height result;
-
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-
-  smartarg1 = *(std::shared_ptr< const AdaptiveCards::BaseCardElement > **)&jarg1;
-  arg1 = (AdaptiveCards::BaseCardElement *)(smartarg1 ? smartarg1->get() : 0);
-  result = ((AdaptiveCards::BaseCardElement const *)arg1)->GetHeight();
-  *(Height **)&jresult = new Height((const Height &)result);
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_BaseCardElement_1SetHeight(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  AdaptiveCards::BaseCardElement *arg1 = (AdaptiveCards::BaseCardElement *) 0 ;
-  Height arg2 ;
-  std::shared_ptr< AdaptiveCards::BaseCardElement > *smartarg1 = 0 ;
-  Height const *argp2 ;
-
+  AdaptiveCards::Height result;
+  
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
+  smartarg1 = *(std::shared_ptr< const AdaptiveCards::BaseCardElement > **)&jarg1;
+  arg1 = (AdaptiveCards::BaseCardElement *)(smartarg1 ? smartarg1->get() : 0); 
+  result = ((AdaptiveCards::BaseCardElement const *)arg1)->GetHeight();
+  *(std::shared_ptr<  AdaptiveCards::Height > **)&jresult = new std::shared_ptr<  AdaptiveCards::Height >(new AdaptiveCards::Height((AdaptiveCards::Height &)result)); 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_BaseCardElement_1SetHeight(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  AdaptiveCards::BaseCardElement *arg1 = (AdaptiveCards::BaseCardElement *) 0 ;
+  AdaptiveCards::Height arg2 ;
+  std::shared_ptr< AdaptiveCards::BaseCardElement > *smartarg1 = 0 ;
+  AdaptiveCards::Height const *argp2 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
   smartarg1 = *(std::shared_ptr<  AdaptiveCards::BaseCardElement > **)&jarg1;
   arg1 = (AdaptiveCards::BaseCardElement *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(Height **)&jarg2; 
+  
+  argp2 = (*(std::shared_ptr< const AdaptiveCards::Height > **)&jarg2) ? (*(std::shared_ptr< const AdaptiveCards::Height > **)&jarg2)->get() : 0;
   if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null Height const");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null AdaptiveCards::Height const");
     return ;
   }
   arg2 = *argp2; 
@@ -8074,160 +8230,6 @@ SWIGEXPORT void JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectMode
   
   smartarg1 = *(std::shared_ptr<  AdaptiveCards::FactSetParser > **)&jarg1;
   arg1 = (AdaptiveCards::FactSetParser *)(smartarg1 ? smartarg1->get() : 0); 
-  (void)arg1; delete smartarg1;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_new_1Height_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  AdaptiveCards::Height *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (AdaptiveCards::Height *)new AdaptiveCards::Height();
-  
-  *(std::shared_ptr<  AdaptiveCards::Height > **)&jresult = result ? new std::shared_ptr<  AdaptiveCards::Height >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_new_1Height_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1) {
-  jlong jresult = 0 ;
-  AdaptiveCards::HeightType arg1 ;
-  AdaptiveCards::Height *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  arg1 = (AdaptiveCards::HeightType)jarg1; 
-  result = (AdaptiveCards::Height *)new AdaptiveCards::Height(arg1);
-  
-  *(std::shared_ptr<  AdaptiveCards::Height > **)&jresult = result ? new std::shared_ptr<  AdaptiveCards::Height >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT jint JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_Height_1GetHeightType(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jint jresult = 0 ;
-  AdaptiveCards::Height *arg1 = (AdaptiveCards::Height *) 0 ;
-  std::shared_ptr< AdaptiveCards::Height > *smartarg1 = 0 ;
-  AdaptiveCards::HeightType result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  AdaptiveCards::Height > **)&jarg1;
-  arg1 = (AdaptiveCards::Height *)(smartarg1 ? smartarg1->get() : 0); 
-  result = (AdaptiveCards::HeightType)(arg1)->GetHeightType();
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_Height_1SetHeightType(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  AdaptiveCards::Height *arg1 = (AdaptiveCards::Height *) 0 ;
-  AdaptiveCards::HeightType arg2 ;
-  std::shared_ptr< AdaptiveCards::Height > *smartarg1 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  AdaptiveCards::Height > **)&jarg1;
-  arg1 = (AdaptiveCards::Height *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (AdaptiveCards::HeightType)jarg2; 
-  (arg1)->SetHeightType(arg2);
-}
-
-
-SWIGEXPORT jstring JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_Height_1Serialize(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  AdaptiveCards::Height *arg1 = (AdaptiveCards::Height *) 0 ;
-  std::shared_ptr< AdaptiveCards::Height > *smartarg1 = 0 ;
-  std::string result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  AdaptiveCards::Height > **)&jarg1;
-  arg1 = (AdaptiveCards::Height *)(smartarg1 ? smartarg1->get() : 0); 
-  result = (arg1)->Serialize();
-  jresult = jenv->NewStringUTF((&result)->c_str()); 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_Height_1SerializeToJsonValue(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  AdaptiveCards::Height *arg1 = (AdaptiveCards::Height *) 0 ;
-  std::shared_ptr< AdaptiveCards::Height > *smartarg1 = 0 ;
-  Json::Value result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  AdaptiveCards::Height > **)&jarg1;
-  arg1 = (AdaptiveCards::Height *)(smartarg1 ? smartarg1->get() : 0); 
-  result = (arg1)->SerializeToJsonValue();
-  *(Json::Value **)&jresult = new Json::Value((const Json::Value &)result); 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_Height_1Deserialize(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  Json::Value *arg1 = 0 ;
-  AdaptiveCards::Height result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(Json::Value **)&jarg1;
-  if (!arg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Json::Value const & reference is null");
-    return 0;
-  } 
-  result = AdaptiveCards::Height::Deserialize((Json::Value const &)*arg1);
-  *(std::shared_ptr<  AdaptiveCards::Height > **)&jresult = new std::shared_ptr<  AdaptiveCards::Height >(new AdaptiveCards::Height((AdaptiveCards::Height &)result)); 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_Height_1DeserializeFromString(JNIEnv *jenv, jclass jcls, jstring jarg1) {
-  jlong jresult = 0 ;
-  std::string *arg1 = 0 ;
-  std::shared_ptr< AdaptiveCards::Height > result;
-  
-  (void)jenv;
-  (void)jcls;
-  if(!jarg1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
-    return 0;
-  }
-  const char *arg1_pstr = (const char *)jenv->GetStringUTFChars(jarg1, 0); 
-  if (!arg1_pstr) return 0;
-  std::string arg1_str(arg1_pstr);
-  arg1 = &arg1_str;
-  jenv->ReleaseStringUTFChars(jarg1, arg1_pstr); 
-  result = AdaptiveCards::Height::DeserializeFromString((std::string const &)*arg1);
-  *(std::shared_ptr< AdaptiveCards::Height > **)&jresult = result ? new std::shared_ptr< AdaptiveCards::Height >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_io_adaptivecards_objectmodel_AdaptiveCardObjectModelJNI_delete_1Height(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  AdaptiveCards::Height *arg1 = (AdaptiveCards::Height *) 0 ;
-  std::shared_ptr< AdaptiveCards::Height > *smartarg1 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  
-  smartarg1 = *(std::shared_ptr<  AdaptiveCards::Height > **)&jarg1;
-  arg1 = (AdaptiveCards::Height *)(smartarg1 ? smartarg1->get() : 0); 
   (void)arg1; delete smartarg1;
 }
 

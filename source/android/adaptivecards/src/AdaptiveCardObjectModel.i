@@ -61,6 +61,7 @@ struct tm {
 #include <memory>
 #include <time.h>
 #include "../../../shared/cpp/ObjectModel/Enums.h"
+#include "../../../shared/cpp/ObjectModel/Height.h"
 #include "../../../shared/cpp/ObjectModel/BaseCardElement.h"
 #include "../../../shared/cpp/ObjectModel/BaseActionElement.h"
 #include "../../../shared/cpp/ObjectModel/BaseInputElement.h"
@@ -73,7 +74,6 @@ struct tm {
 #include "../../../shared/cpp/ObjectModel/ColumnSet.h"
 #include "../../../shared/cpp/ObjectModel/Fact.h"
 #include "../../../shared/cpp/ObjectModel/FactSet.h"
-#include "../../../shared/cpp/ObjectModel/Height.h"
 #include "../../../shared/cpp/ObjectModel/ChoiceInput.h"
 #include "../../../shared/cpp/ObjectModel/ChoiceSetInput.h"
 #include "../../../shared/cpp/ObjectModel/DateInput.h"
@@ -552,6 +552,7 @@ namespace Json {
 
 %include "../../../shared/cpp/ObjectModel/pch.h"
 %include "../../../shared/cpp/ObjectModel/Enums.h"
+%include "../../../shared/cpp/ObjectModel/Height.h"
 %include "../../../shared/cpp/ObjectModel/BaseCardElement.h"
 %include "../../../shared/cpp/ObjectModel/BaseActionElement.h"
 %include "../../../shared/cpp/ObjectModel/BaseInputElement.h"
@@ -564,7 +565,6 @@ namespace Json {
 %include "../../../shared/cpp/ObjectModel/ColumnSet.h"
 %include "../../../shared/cpp/ObjectModel/Fact.h"
 %include "../../../shared/cpp/ObjectModel/FactSet.h"
-%include "../../../shared/cpp/ObjectModel/Height.h"
 %include "../../../shared/cpp/ObjectModel/ChoiceInput.h"
 %include "../../../shared/cpp/ObjectModel/ChoiceSetInput.h"
 %include "../../../shared/cpp/ObjectModel/DateInput.h"
