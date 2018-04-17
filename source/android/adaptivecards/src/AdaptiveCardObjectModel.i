@@ -73,6 +73,7 @@ struct tm {
 #include "../../../shared/cpp/ObjectModel/ColumnSet.h"
 #include "../../../shared/cpp/ObjectModel/Fact.h"
 #include "../../../shared/cpp/ObjectModel/FactSet.h"
+#include "../../../shared/cpp/ObjectModel/Height.h"
 #include "../../../shared/cpp/ObjectModel/ChoiceInput.h"
 #include "../../../shared/cpp/ObjectModel/ChoiceSetInput.h"
 #include "../../../shared/cpp/ObjectModel/DateInput.h"
@@ -109,6 +110,7 @@ struct tm {
 %shared_ptr(AdaptiveCards::ColumnSet)
 %shared_ptr(AdaptiveCards::Fact)
 %shared_ptr(AdaptiveCards::FactSet)
+%shared_ptr(AdaptiveCards::Height)
 %shared_ptr(AdaptiveCards::ChoiceInput)
 %shared_ptr(AdaptiveCards::ChoiceSetInput)
 %shared_ptr(AdaptiveCards::DateInput)
@@ -562,6 +564,7 @@ namespace Json {
 %include "../../../shared/cpp/ObjectModel/ColumnSet.h"
 %include "../../../shared/cpp/ObjectModel/Fact.h"
 %include "../../../shared/cpp/ObjectModel/FactSet.h"
+%include "../../../shared/cpp/ObjectModel/Height.h"
 %include "../../../shared/cpp/ObjectModel/ChoiceInput.h"
 %include "../../../shared/cpp/ObjectModel/ChoiceSetInput.h"
 %include "../../../shared/cpp/ObjectModel/DateInput.h"

@@ -143,6 +143,8 @@ public class AdaptiveCardObjectModelJNI {
   public final static native int CardElementTypeFromString(String jarg1);
   public final static native String ActionTypeToString(int jarg1);
   public final static native int ActionTypeFromString(String jarg1);
+  public final static native String HeightTypeToString(int jarg1);
+  public final static native int HeightTypeFromString(String jarg1);
   public final static native String HorizontalAlignmentToString(int jarg1);
   public final static native int HorizontalAlignmentFromString(String jarg1);
   public final static native String ForegroundColorToString(int jarg1);
@@ -184,6 +186,8 @@ public class AdaptiveCardObjectModelJNI {
   public final static native boolean BaseCardElement_GetSeparatorSwigExplicitBaseCardElement(long jarg1, BaseCardElement jarg1_);
   public final static native void BaseCardElement_SetSeparator(long jarg1, BaseCardElement jarg1_, boolean jarg2);
   public final static native void BaseCardElement_SetSeparatorSwigExplicitBaseCardElement(long jarg1, BaseCardElement jarg1_, boolean jarg2);
+  public final static native long BaseCardElement_GetHeight(long jarg1, BaseCardElement jarg1_);
+  public final static native void BaseCardElement_SetHeight(long jarg1, BaseCardElement jarg1_, long jarg2);
   public final static native int BaseCardElement_GetSpacing(long jarg1, BaseCardElement jarg1_);
   public final static native int BaseCardElement_GetSpacingSwigExplicitBaseCardElement(long jarg1, BaseCardElement jarg1_);
   public final static native void BaseCardElement_SetSpacing(long jarg1, BaseCardElement jarg1_, int jarg2);
@@ -362,6 +366,15 @@ public class AdaptiveCardObjectModelJNI {
   public final static native long FactSetParser_DeserializeFromString(long jarg1, FactSetParser jarg1_, long jarg2, ElementParserRegistration jarg2_, long jarg3, ActionParserRegistration jarg3_, String jarg4);
   public final static native long new_FactSetParser();
   public final static native void delete_FactSetParser(long jarg1);
+  public final static native long new_Height__SWIG_0();
+  public final static native long new_Height__SWIG_1(int jarg1);
+  public final static native int Height_GetHeightType(long jarg1, Height jarg1_);
+  public final static native void Height_SetHeightType(long jarg1, Height jarg1_, int jarg2);
+  public final static native String Height_Serialize(long jarg1, Height jarg1_);
+  public final static native long Height_SerializeToJsonValue(long jarg1, Height jarg1_);
+  public final static native long Height_Deserialize(long jarg1, JsonValue jarg1_);
+  public final static native long Height_DeserializeFromString(String jarg1);
+  public final static native void delete_Height(long jarg1);
   public final static native long new_ChoiceInput();
   public final static native String ChoiceInput_Serialize(long jarg1, ChoiceInput jarg1_);
   public final static native long ChoiceInput_SerializeToJsonValue(long jarg1, ChoiceInput jarg1_);

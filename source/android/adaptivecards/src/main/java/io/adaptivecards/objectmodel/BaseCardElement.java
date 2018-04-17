@@ -82,6 +82,14 @@ public class BaseCardElement {
     if (getClass() == BaseCardElement.class) AdaptiveCardObjectModelJNI.BaseCardElement_SetSeparator(swigCPtr, this, value); else AdaptiveCardObjectModelJNI.BaseCardElement_SetSeparatorSwigExplicitBaseCardElement(swigCPtr, this, value);
   }
 
+  public SWIGTYPE_p_Height GetHeight() {
+    return new SWIGTYPE_p_Height(AdaptiveCardObjectModelJNI.BaseCardElement_GetHeight(swigCPtr, this), true);
+  }
+
+  public void SetHeight(SWIGTYPE_p_Height value) {
+    AdaptiveCardObjectModelJNI.BaseCardElement_SetHeight(swigCPtr, this, SWIGTYPE_p_Height.getCPtr(value));
+  }
+
   public Spacing GetSpacing() {
     return Spacing.swigToEnum((getClass() == BaseCardElement.class) ? AdaptiveCardObjectModelJNI.BaseCardElement_GetSpacing(swigCPtr, this) : AdaptiveCardObjectModelJNI.BaseCardElement_GetSpacingSwigExplicitBaseCardElement(swigCPtr, this));
   }
