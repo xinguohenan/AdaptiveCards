@@ -106,20 +106,26 @@ std::shared_ptr<ParseResult> AdaptiveCard::Deserialize(
     std::string speak = ParseUtil::GetString(json, AdaptiveCardSchemaKey::Speak);
 
     // check if language is valid
-    try 
+    try
     {
         if (language.empty() || language.length() == 2 || language.length() == 3)
         {
-            std::locale(language.c_str());
+            // attempt to instantiate a locale object with the card's specified language. will throw an exception if the
+            // language is invalid.
+            auto cardLocale = std::locale(language.c_str());
         }
         else
         {
-            warnings.push_back(std::make_shared<AdaptiveCardParseWarning>(AdaptiveSharedNamespace::WarningStatusCode::InvalidLanguage, "Invalid language identifier: " + language));
+            warnings.push_back(std::make_shared<AdaptiveCardParseWarning>(
+                    AdaptiveSharedNamespace::WarningStatusCode::InvalidLanguage,
+                    "Invalid language identifier: " + language));
         }
     }
     catch (std::runtime_error)
     {
-        warnings.push_back(std::make_shared<AdaptiveCardParseWarning>(AdaptiveSharedNamespace::WarningStatusCode::InvalidLanguage, "Invalid language identifier: " + language));
+        warnings.push_back(std::make_shared<AdaptiveCardParseWarning>(
+                AdaptiveSharedNamespace::WarningStatusCode::InvalidLanguage,
+                "Invalid language identifier: " + language));
     }
 
     if (enforceVersion)
@@ -139,7 +145,9 @@ std::shared_ptr<ParseResult> AdaptiveCard::Deserialize(
                 speak = fallbackText;
             }
 
-            warnings.push_back(std::make_shared<AdaptiveCardParseWarning>(AdaptiveSharedNamespace::WarningStatusCode::UnsupportedSchemaVersion, "Schema version not supported"));
+            warnings.push_back(std::make_shared<AdaptiveCardParseWarning>(
+                    AdaptiveSharedNamespace::WarningStatusCode::UnsupportedSchemaVersion,
+                    "Schema version not supported"));
             return std::make_shared<ParseResult>(MakeFallbackTextCard(fallbackText, language, speak), warnings);
         }
     }

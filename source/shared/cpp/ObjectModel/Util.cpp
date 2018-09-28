@@ -96,7 +96,7 @@ void ValidateUserInputForDimensionWithUnit(const std::string &unit, const std::s
         {
             warnings.emplace_back(std::make_shared<AdaptiveCardParseWarning>(
                     AdaptiveSharedNamespace::WarningStatusCode::InvalidDimensionSpecified,
-                    warningMessage + requestedDimension)); 
+                    warningMessage + requestedDimension));
         }
         catch (const std::out_of_range &)
         {
@@ -105,11 +105,11 @@ void ValidateUserInputForDimensionWithUnit(const std::string &unit, const std::s
                     "out of range: " + requestedDimension));
         }
     }
-    else 
+    else
     {
         warnings.emplace_back(std::make_shared<AdaptiveCardParseWarning>(
                 AdaptiveSharedNamespace::WarningStatusCode::InvalidDimensionSpecified,
-                warningMessage + requestedDimension)); 
+                warningMessage + requestedDimension));
     }
 }
 
@@ -120,7 +120,7 @@ bool ShouldParseForExplicitDimension(const std::string &input)
         return false;
     }
 
-    char ch = input.at(0);
+    unsigned char ch = input.at(0);
 
     if ('-' == ch || '.' == ch)
     {
@@ -132,7 +132,7 @@ bool ShouldParseForExplicitDimension(const std::string &input)
     while (index < input.length())
     {
         ch = input.at(index++);
-        hasDigit |= isdigit(ch); 
+        hasDigit |= isdigit(ch);
         if (hasDigit && (isalpha(ch) || '.' == ch))
         {
             return true;
@@ -141,9 +141,7 @@ bool ShouldParseForExplicitDimension(const std::string &input)
     return false;
 }
 
-void EnsureShowCardVersions(
-    std::vector<std::shared_ptr<BaseActionElement>>& actions, 
-    std::string& version)
+void EnsureShowCardVersions(std::vector<std::shared_ptr<BaseActionElement>>& actions, const std::string& version)
 {
     for (auto& action : actions)
     {

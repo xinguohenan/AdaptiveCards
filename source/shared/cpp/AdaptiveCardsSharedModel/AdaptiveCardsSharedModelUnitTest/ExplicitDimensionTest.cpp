@@ -297,20 +297,13 @@ namespace AdaptiveCardsSharedModelUnitTest
 
             for (auto payload : payloads)
             {
-                try {
-                    std::shared_ptr<ParseResult> parseResult = AdaptiveCard::DeserializeFromString(payload, "1.1");
-                    std::shared_ptr<BaseCardElement> elem = parseResult->GetAdaptiveCard()->GetBody().front();
-                    std::shared_ptr<Image> image = std::static_pointer_cast<Image>(elem);
+                std::shared_ptr<ParseResult> parseResult = AdaptiveCard::DeserializeFromString(payload, "1.1");
+                std::shared_ptr<BaseCardElement> elem = parseResult->GetAdaptiveCard()->GetBody().front();
+                std::shared_ptr<Image> image = std::static_pointer_cast<Image>(elem);
                     
-                    Assert::AreEqual<int>(2, parseResult->GetWarnings().size());
-                    Assert::AreEqual<unsigned int>(0U, image->GetPixelHeight());
-                    Assert::AreEqual<unsigned int>(0U, image->GetPixelWidth());
-                }
-                catch(const AdaptiveCardParseException &e)
-                {
-                    // no exception should be thrown
-                    Assert::Fail();
-                }
+                Assert::AreEqual<int>(2, parseResult->GetWarnings().size());
+                Assert::AreEqual<unsigned int>(0U, image->GetPixelHeight());
+                Assert::AreEqual<unsigned int>(0U, image->GetPixelWidth());
             } 
         }
     };
