@@ -76,6 +76,7 @@ license you like.
 
 #ifdef USE_CPPCORECHECK
 #pragma warning(disable: ALL_CPPCORECHECK_WARNINGS)
+#pragma warning(disable: 4702)
 #endif
 
 #include "json/json.h"
