@@ -23,32 +23,20 @@ var assets = [
         dest: function (p) { return "js/adaptivecards.min.js"; }
     },
     {
-        // visualizer script
-        path: "node_modules/adaptivecards-visualizer/dist/adaptivecards-visualizer.min.js",
-        dest: function (p) { return "visualizer/adaptivecards-visualizer.min.js"; }
-    },
-    {
         // visualizer css
         path: "node_modules/adaptivecards-visualizer/css/*.css",
         dest: function (p) { return "visualizer/css/" + path.basename(p); }
+    },
+    {
+        // visualizer css
+        path: "node_modules/adaptivecards-visualizer/dist/*",
+        dest: function (p) { return "visualizer/" + path.basename(p); }
     },
     {
         // visualizer assets
         path: "node_modules/adaptivecards-visualizer/assets/*",
         dest: function (p) { return "visualizer/assets/" + path.basename(p); }
     },
-    {
-        // monaco editor
-        path: "node_modules/monaco-editor/min/**/*.*",
-        dest: function (p) { return "visualizer/" + p; }
-    },
-    {
-        // monaco loader
-        // this is a temp hack until Monaco works with webpack
-        // https://github.com/Microsoft/monaco-editor/issues/18
-        path: "../adaptivecards-visualizer/src/monaco-loader.js",
-        dest: function (p) { return "visualizer/monaco-loader.js" }
-	},
 	{
         // monaco loader
         // this is a temp hack until Monaco works with webpack

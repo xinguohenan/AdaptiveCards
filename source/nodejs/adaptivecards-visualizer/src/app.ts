@@ -1,6 +1,7 @@
 ﻿import * as AdaptiveCards from "adaptivecards";
 import * as MarkdownIt from "markdown-it";
 import * as Constants from "./constants";
+import * as Monaco from "./monaco-loader";
 
 import { HostContainer } from "./containers/host-container";
 import { SkypeContainer } from "./containers/skype";
@@ -112,7 +113,7 @@ function filePickerChanged(evt) {
             if (typeof downloadedPayload === "string") {
                 currentCardPayload = downloadedPayload;
             }
-            
+
             switchToCardEditor();
         }
 
@@ -144,7 +145,7 @@ function loadStyleSheetAndConfig() {
     currentConfigPayload = JSON.stringify(selectedHostContainer.getHostConfig(), null, '\t');
 
     if (!isCardEditor) {
-        monacoEditor.setValue(currentConfigPayload);
+        Monaco.editor.setValue(currentConfigPayload);
     }
 }
 
@@ -351,8 +352,8 @@ function switchToCardEditor() {
     document.getElementById("editCard").classList.remove("subdued");
     document.getElementById("editConfig").classList.add("subdued");
 
-    monacoEditor.setValue(currentCardPayload);
-    monacoEditor.focus();
+    Monaco.editor.setValue(currentCardPayload);
+    Monaco.editor.focus();
 }
 
 function switchToConfigEditor() {
@@ -361,8 +362,8 @@ function switchToConfigEditor() {
     document.getElementById("editCard").classList.add("subdued");
     document.getElementById("editConfig").classList.remove("subdued");
 
-    monacoEditor.setValue(currentConfigPayload);
-    monacoEditor.focus();
+    Monaco.editor.setValue(currentConfigPayload);
+    Monaco.editor.focus();
 }
 
 function inlineCardExpanded(action: AdaptiveCards.ShowCardAction, isExpanded: boolean) {
@@ -373,13 +374,7 @@ function elementVisibilityChanged(element: AdaptiveCards.CardElement) {
     alert("An element is now " + (element.isVisible ? "visible" : "invisible"));
 }
 
-declare var monacoEditor: any;
-
-// Monaco loads asynchronously via a call to require() from index.html
-// App initialization needs to happen after.
-declare function loadMonacoEditor(schema: any, callback: () => void);
-
-function monacoEditorLoaded() {
+function monacoLoaded() {
     AdaptiveCards.AdaptiveCard.onParseElement = (element: AdaptiveCards.CardElement, json: any) => {
         getSelectedHostContainer().parseElement(element, json);
     }
@@ -427,13 +422,13 @@ function monacoEditorLoaded() {
             setContainerAppFromUrl();
         });
 
-    monacoEditor.onDidChangeModelContent(
+    Monaco.editor.onDidChangeModelContent(
         function (e) {
             if (isCardEditor) {
-                currentCardPayload = monacoEditor.getValue();
+                currentCardPayload = Monaco.editor.getValue();
             }
             else {
-                currentConfigPayload = monacoEditor.getValue();
+                currentConfigPayload = Monaco.editor.getValue();
             }
 
             tryRenderCard();
@@ -492,5 +487,5 @@ window.onload = () => {
         return new MarkdownIt().render(text);
     }
 
-    loadMonacoEditor(adaptiveCardSchema, monacoEditorLoaded);
+    Monaco.loadMonacoEditor(adaptiveCardSchema, monacoLoaded);
 };

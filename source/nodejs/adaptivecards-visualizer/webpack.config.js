@@ -1,5 +1,6 @@
 var webpack = require("webpack");
 var path = require("path");
+var monacoWebpack = require('monaco-editor-webpack-plugin');
 
 var visualizer = {
     devtool: "source-map",
@@ -12,20 +13,25 @@ var visualizer = {
         filename: "[name].js",
     },
     resolve: {
-        extensions: [".ts", ".tsx", ".js"]
+        extensions: [".ts", ".tsx", ".js", ".css"]
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            minimize: true,
-            sourceMap: true,
-            include: /\.min\.js$/,
-        })
+        new monacoWebpack(
+            {
+                languages: ["json"]
+            }
+        )
     ],
+    optimization: {},
     module: {
         rules: [
             {
                 test: /\.ts$/,
                 loader: "ts-loader"
+            },
+            {
+                test: /\.css$/,
+                loader: "css-loader"
             },
             {
                 test: /\.json$/,
