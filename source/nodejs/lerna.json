@@ -1,0 +1,12 @@
+{
+  "packages": [
+	  "adaptivecards",
+	  "adaptivecards-controls",
+	  "adaptivecards-controls-test",
+	  "adaptivecards-designer",
+	  "adaptivecards-site",
+	  "adaptivecards-visualizer",
+	  "marked"
+  ],
+  "version": "independent"
+}
