@@ -9,12 +9,17 @@ namespace AdaptiveNamespace
 {
     class RenderedAdaptiveCard
         : public Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<Microsoft::WRL::RuntimeClassType::WinRtClassicComMix>,
+                                              Microsoft::WRL::Implements<IWeakReferenceSource>,
                                               Microsoft::WRL::Implements<ABI::AdaptiveNamespace::IRenderedAdaptiveCard>>
     {
         AdaptiveRuntime(RenderedAdaptiveCard);
 
     public:
         RenderedAdaptiveCard();
+        virtual ~RenderedAdaptiveCard()
+        {
+
+        }
 
         HRESULT RuntimeClassInitialize();
         HRESULT RuntimeClassInitialize(
