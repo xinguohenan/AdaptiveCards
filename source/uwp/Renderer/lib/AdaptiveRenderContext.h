@@ -8,7 +8,9 @@
 namespace AdaptiveNamespace
 {
     class AdaptiveRenderContext
-        : public Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<Microsoft::WRL::RuntimeClassType::WinRtClassicComMix>, ABI::AdaptiveNamespace::IAdaptiveRenderContext>
+        : public Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<Microsoft::WRL::RuntimeClassType::WinRtClassicComMix>,
+                                              Microsoft::WRL::Implements<IWeakReferenceSource>,
+                                              ABI::AdaptiveNamespace::IAdaptiveRenderContext>
     {
         AdaptiveRuntime(AdaptiveRenderContext);
 
@@ -32,12 +34,13 @@ namespace AdaptiveNamespace
         IFACEMETHODIMP AddError(_In_ ABI::AdaptiveNamespace::ErrorStatusCode statusCode, _In_ HSTRING message);
         IFACEMETHODIMP AddWarning(_In_ ABI::AdaptiveNamespace::WarningStatusCode statusCode, _In_ HSTRING message);
 
+        HRESULT GetRenderResult(_COM_Outptr_ ABI::AdaptiveNamespace::IRenderedAdaptiveCard** renderResult);
         Microsoft::WRL::ComPtr<ABI::Windows::UI::Xaml::IResourceDictionary> GetDefaultActionSentimentDictionary();
 
     private:
         Microsoft::WRL::ComPtr<ABI::AdaptiveNamespace::IAdaptiveHostConfig> m_hostConfig;
         Microsoft::WRL::ComPtr<ABI::AdaptiveNamespace::IAdaptiveElementRendererRegistration> m_elementRendererRegistration;
-        Microsoft::WRL::ComPtr<AdaptiveNamespace::RenderedAdaptiveCard> m_renderResult;
+        Microsoft::WRL::WeakRef m_weakRenderResult;
         Microsoft::WRL::ComPtr<AdaptiveNamespace::AdaptiveActionInvoker> m_actionInvoker;
         Microsoft::WRL::ComPtr<AdaptiveNamespace::AdaptiveMediaEventInvoker> m_mediaEventInvoker;
         Microsoft::WRL::ComPtr<ABI::AdaptiveNamespace::IAdaptiveCardResourceResolvers> m_resourceResolvers;
