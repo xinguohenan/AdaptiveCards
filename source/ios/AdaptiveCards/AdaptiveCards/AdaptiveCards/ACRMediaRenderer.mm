@@ -129,6 +129,9 @@
         view.userInteractionEnabled = YES;
     }
 
+    view.hidden = !(elem->GetIsVisible());
+    NSString *hashkey = [NSString stringWithCString:elem->GetId().c_str() encoding:NSUTF8StringEncoding];
+    view.tag = hashkey.hash;
     return view;
 }
 

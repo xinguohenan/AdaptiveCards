@@ -184,6 +184,9 @@
 
     view.translatesAutoresizingMaskIntoConstraints = NO;
     wrappingview.translatesAutoresizingMaskIntoConstraints = NO;
+    wrappingview.hidden = !(elem->GetIsVisible());
+    NSString *hashkey = [NSString stringWithCString:elem->GetId().c_str() encoding:NSUTF8StringEncoding];
+    wrappingview.tag = hashkey.hash;
     return wrappingview;
 }
 
