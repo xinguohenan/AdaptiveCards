@@ -4,13 +4,17 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+
+import com.pixplicity.sharp.Sharp;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLDecoder;
 
 import io.adaptivecards.renderer.http.HttpRequestHelper;
 import io.adaptivecards.renderer.http.HttpRequestResult;
@@ -49,7 +53,7 @@ public abstract class GenericImageLoaderAsync extends AsyncTask<String, Void, Ht
                 }
                 else
                 {
-                    return loadDataUriImage(path);
+                    return loadDataUriImage(path, m_maxWidth);
                 }
             }
 
@@ -145,14 +149,23 @@ public abstract class GenericImageLoaderAsync extends AsyncTask<String, Void, Ht
         return new HttpRequestResult<>(bitmap);
     }
 
-    private HttpRequestResult<Bitmap> loadDataUriImage(String uri) throws Exception
+    private HttpRequestResult<Bitmap> loadDataUriImage(String uri, int maxWidth) throws Exception
     {
         String dataUri = AdaptiveBase64Util.ExtractDataFromUri(uri);
         CharVector decodedDataUri = AdaptiveBase64Util.Decode(dataUri);
+        Bitmap bitmap = null;
+        if (uri.startsWith("data:image/svg")) {
+            String svgString = AdaptiveBase64Util.ExtractDataFromUri(uri);
+            String decodedSvgString = URLDecoder.decode(svgString, "UTF-8");
+            Sharp sharp = Sharp.loadString(decodedSvgString);
+            Drawable drawable = sharp.getDrawable();
+            bitmap = ImageUtil.drawableToBitmap(drawable, maxWidth);
+        } else {
+            byte[] decodedByteArray = Util.getBytes(decodedDataUri);
+            bitmap = BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.length);
+            bitmap = styleBitmap(bitmap);
+        }
 
-        byte[] decodedByteArray = Util.getBytes(decodedDataUri);
-        Bitmap bitmap = BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.length);
-        bitmap = styleBitmap(bitmap);
         return new HttpRequestResult<>(bitmap);
     }
 
