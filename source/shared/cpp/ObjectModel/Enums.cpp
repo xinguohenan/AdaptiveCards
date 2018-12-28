@@ -95,6 +95,7 @@ namespace AdaptiveSharedNamespace
             {AdaptiveCardSchemaKey::Method, "method"},
             {AdaptiveCardSchemaKey::MimeType, "mimeType"},
             {AdaptiveCardSchemaKey::Min, "min"},
+            {AdaptiveCardSchemaKey::Mode, "mode"},
             {AdaptiveCardSchemaKey::Monospace, "monospace"},
             {AdaptiveCardSchemaKey::NumberInput, "numberInput"},
             {AdaptiveCardSchemaKey::Padding, "padding"},
@@ -137,6 +138,7 @@ namespace AdaptiveSharedNamespace
             {AdaptiveCardSchemaKey::ValueOff, "valueOff"},
             {AdaptiveCardSchemaKey::ValueOn, "valueOn"},
             {AdaptiveCardSchemaKey::Version, "version"},
+			{AdaptiveCardSchemaKey::VerticalAlignment, "verticalAlignment"},
             {AdaptiveCardSchemaKey::VerticalContentAlignment, "verticalContentAlignment"},
             {AdaptiveCardSchemaKey::Warning, "warning"},
             {AdaptiveCardSchemaKey::Weight, "weight"},
@@ -276,6 +278,11 @@ namespace AdaptiveSharedNamespace
     DEFINE_ADAPTIVECARD_ENUM_DEFAULT(IconPlacement, IconPlacement::AboveTitle, {
             {IconPlacement::AboveTitle, "AboveTitle"},
             {IconPlacement::LeftOfTitle, "LeftOfTitle"}});
+
+    DEFINE_ADAPTIVECARD_ENUM_DEFAULT(VerticalAlignment, VerticalAlignment::Top, {
+            {VerticalAlignment::Top, "Top"},
+            {VerticalAlignment::Center, "Center"},
+            {VerticalAlignment::Bottom, "Bottom"}});
 
     DEFINE_ADAPTIVECARD_ENUM_DEFAULT(VerticalContentAlignment, VerticalContentAlignment::Top, {
             {VerticalContentAlignment::Top, "Top"},

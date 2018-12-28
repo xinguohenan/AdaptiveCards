@@ -252,6 +252,9 @@ public class AdaptiveCardObjectModelJNI {
   public final static native long getSentimentEnum();
   public final static native String SentimentToString(int jarg1);
   public final static native int SentimentFromString(String jarg1);
+  public final static native long getVerticalAlignmentEnum();
+  public final static native String VerticalAlignmentToString(int jarg1);
+  public final static native int VerticalAlignmentFromString(String jarg1);
   public final static native long getVerticalContentAlignmentEnum();
   public final static native String VerticalContentAlignmentToString(int jarg1);
   public final static native int VerticalContentAlignmentFromString(String jarg1);
@@ -343,6 +346,19 @@ public class AdaptiveCardObjectModelJNI {
   public final static native Object BaseActionElement_swigOriginalObject(long jarg1, BaseActionElement jarg1_);
   public final static native void BaseActionElement_director_connect(BaseActionElement obj, long cptr, boolean mem_own, boolean weak_global);
   public final static native void BaseActionElement_change_ownership(BaseActionElement obj, long cptr, boolean take_or_release);
+  public final static native long new_BackgroundImage();
+  public final static native void BackgroundImage_SetType(long jarg1, BackgroundImage jarg1_, String jarg2);
+  public final static native String BackgroundImage_GetType(long jarg1, BackgroundImage jarg1_);
+  public final static native void BackgroundImage_SetMode(long jarg1, BackgroundImage jarg1_, String jarg2);
+  public final static native String BackgroundImage_GetMode(long jarg1, BackgroundImage jarg1_);
+  public final static native void BackgroundImage_SetUrl(long jarg1, BackgroundImage jarg1_, String jarg2);
+  public final static native String BackgroundImage_GetUrl(long jarg1, BackgroundImage jarg1_);
+  public final static native void BackgroundImage_SetHorizontalAlignment(long jarg1, BackgroundImage jarg1_, int jarg2);
+  public final static native int BackgroundImage_GetHorizontalAlignment(long jarg1, BackgroundImage jarg1_);
+  public final static native void BackgroundImage_SetVerticalAlignment(long jarg1, BackgroundImage jarg1_, int jarg2);
+  public final static native int BackgroundImage_GetVerticalAlignment(long jarg1, BackgroundImage jarg1_);
+  public final static native long BackgroundImage_Deserialize(long jarg1, JsonValue jarg1_);
+  public final static native void delete_BackgroundImage(long jarg1);
   public final static native long new_BaseInputElement__SWIG_0(int jarg1);
   public final static native long new_BaseInputElement__SWIG_1(int jarg1, int jarg2, boolean jarg3, int jarg4);
   public final static native String BaseInputElement_GetId(long jarg1, BaseInputElement jarg1_);
@@ -378,6 +394,8 @@ public class AdaptiveCardObjectModelJNI {
   public final static native void delete_ElementParserRegistration(long jarg1);
   public final static native long new_Container();
   public final static native long Container_SerializeToJsonValue(long jarg1, Container jarg1_);
+  public final static native long Container_GetBackgroundImage(long jarg1, Container jarg1_);
+  public final static native void Container_SetBackgroundImage(long jarg1, Container jarg1_, long jarg2, BackgroundImage jarg2_);
   public final static native long Container_GetItems__SWIG_0(long jarg1, Container jarg1_);
   public final static native int Container_GetStyle(long jarg1, Container jarg1_);
   public final static native void Container_SetStyle(long jarg1, Container jarg1_, int jarg2);

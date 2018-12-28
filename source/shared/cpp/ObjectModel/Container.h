@@ -3,6 +3,7 @@
 #include "pch.h"
 #include "Enums.h"
 #include "BaseCardElement.h"
+#include "BackgroundImage.h"
 
 namespace AdaptiveSharedNamespace
 {
@@ -17,6 +18,9 @@ namespace AdaptiveSharedNamespace
 
         Json::Value SerializeToJsonValue() const override;
 
+        std::shared_ptr<BackgroundImage> GetBackgroundImage() const;
+		void SetBackgroundImage(const std::shared_ptr<BackgroundImage> value);
+		
         std::vector<std::shared_ptr<BaseCardElement>>& GetItems();
         const std::vector<std::shared_ptr<BaseCardElement>>& GetItems() const;
 
@@ -40,6 +44,7 @@ namespace AdaptiveSharedNamespace
         VerticalContentAlignment m_verticalContentAlignment;
         std::vector<std::shared_ptr<AdaptiveSharedNamespace::BaseCardElement>> m_items;
         std::shared_ptr<BaseActionElement> m_selectAction;
+		std::shared_ptr<BackgroundImage> m_backgroundImage;
     };
 
     class ContainerParser : public BaseCardElementParser

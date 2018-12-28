@@ -1,7 +1,9 @@
 package io.adaptivecards.renderer.readonly;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v4.app.FragmentManager;
 import android.view.Gravity;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.LinearLayout;
 import io.adaptivecards.objectmodel.ContainerStyle;
 import io.adaptivecards.objectmodel.HeightType;
 import io.adaptivecards.objectmodel.VerticalContentAlignment;
+import io.adaptivecards.renderer.InnerImageLoaderAsync;
 import io.adaptivecards.renderer.RenderedAdaptiveCard;
 import io.adaptivecards.renderer.Util;
 import io.adaptivecards.renderer.action.ActionElementRenderer;
@@ -43,7 +46,7 @@ public class ContainerRenderer extends BaseCardElementRenderer
     @Override
     public View render(
             RenderedAdaptiveCard renderedCard,
-            Context context,
+            final Context context,
             FragmentManager fragmentManager,
             ViewGroup viewGroup,
             BaseCardElement baseCardElement,
@@ -63,7 +66,7 @@ public class ContainerRenderer extends BaseCardElementRenderer
 
         setSpacingAndSeparator(context, viewGroup, container.GetSpacing(),container.GetSeparator(), hostConfig, true /* horizontal line */);
         ContainerStyle styleForThis = container.GetStyle().swigValue() == ContainerStyle.None.swigValue() ? containerStyle : container.GetStyle();
-        LinearLayout containerView = new LinearLayout(context);
+        final LinearLayout containerView = new LinearLayout(context);
 
         containerView.setOrientation(LinearLayout.VERTICAL);
         if(container.GetHeight() == HeightType.Stretch)
@@ -108,6 +111,19 @@ public class ContainerRenderer extends BaseCardElementRenderer
         {
             containerView.setClickable(true);
             containerView.setOnClickListener(new ActionElementRenderer.ButtonOnClickListener(renderedCard, container.GetSelectAction(), cardActionHandler));
+        }
+
+        if (container.GetBackgroundImage() != null)
+        {
+            InnerImageLoaderAsync innerImageLoaderAsync = new InnerImageLoaderAsync(renderedCard, containerView, container.GetBackgroundImage().GetUrl(), Integer.MAX_VALUE)
+            {
+                @Override
+                protected void renderBitmap(Bitmap bitmap)
+                {
+                    containerView.setBackground(new BitmapDrawable(context.getResources(), bitmap));
+                }
+            };
+            innerImageLoaderAsync.execute(container.GetBackgroundImage().GetUrl());
         }
 
         viewGroup.addView(containerView);

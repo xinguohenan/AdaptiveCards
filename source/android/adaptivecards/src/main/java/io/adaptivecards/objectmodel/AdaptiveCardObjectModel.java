@@ -249,6 +249,18 @@ public class AdaptiveCardObjectModel implements AdaptiveCardObjectModelConstants
     return Sentiment.swigToEnum(AdaptiveCardObjectModelJNI.SentimentFromString(t));
   }
 
+  public static SWIGTYPE_p_AdaptiveCards__EnumHelpers__EnumMappingT_AdaptiveCards__VerticalAlignment_t getVerticalAlignmentEnum() {
+    return new SWIGTYPE_p_AdaptiveCards__EnumHelpers__EnumMappingT_AdaptiveCards__VerticalAlignment_t(AdaptiveCardObjectModelJNI.getVerticalAlignmentEnum(), false);
+  }
+
+  public static String VerticalAlignmentToString(VerticalAlignment t) {
+    return AdaptiveCardObjectModelJNI.VerticalAlignmentToString(t.swigValue());
+  }
+
+  public static VerticalAlignment VerticalAlignmentFromString(String t) {
+    return VerticalAlignment.swigToEnum(AdaptiveCardObjectModelJNI.VerticalAlignmentFromString(t));
+  }
+
   public static SWIGTYPE_p_AdaptiveCards__EnumHelpers__EnumMappingT_AdaptiveCards__VerticalContentAlignment_t getVerticalContentAlignmentEnum() {
     return new SWIGTYPE_p_AdaptiveCards__EnumHelpers__EnumMappingT_AdaptiveCards__VerticalContentAlignment_t(AdaptiveCardObjectModelJNI.getVerticalContentAlignmentEnum(), false);
   }

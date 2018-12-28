@@ -13,6 +13,16 @@ Container::Container() :
     PopulateKnownPropertiesSet();
 }
 
+std::shared_ptr<BackgroundImage> Container::GetBackgroundImage() const
+{
+	return m_backgroundImage;
+}
+
+void Container::SetBackgroundImage(const std::shared_ptr<BackgroundImage> value)
+{
+    m_backgroundImage = value;
+}
+
 const std::vector<std::shared_ptr<BaseCardElement>>& Container::GetItems() const
 {
     return m_items;
@@ -94,6 +104,9 @@ std::shared_ptr<BaseCardElement> ContainerParser::Deserialize(ParseContext& cont
     ParseUtil::ExpectTypeString(value, CardElementType::Container);
 
     auto container = BaseCardElement::Deserialize<Container>(value);
+
+    Json::Value backgroundImageJson = ParseUtil::ExtractJsonValue(value, AdaptiveCardSchemaKey::BackgroundImage);
+	container->SetBackgroundImage(BackgroundImage::Deserialize(backgroundImageJson));
 
     container->SetStyle(ParseUtil::GetEnumValue<ContainerStyle>(value, AdaptiveCardSchemaKey::Style, ContainerStyle::None, ContainerStyleFromString));
 
