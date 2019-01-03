@@ -15,6 +15,7 @@ public class RenderedAdaptiveCard {
     private Vector<AdaptiveWarning> warnings;
     private Vector<IInputHandler> handlers;
     private AdaptiveCard adaptiveCard;
+    private View.OnFocusChangeListener textInputFocusChangeListener;
 
     protected RenderedAdaptiveCard(AdaptiveCard adaptiveCard)
     {
@@ -76,5 +77,13 @@ public class RenderedAdaptiveCard {
 
     public void setView(View view) {
         this.view = view;
+    }
+
+    public void setOnFocusChangeListener(View.OnFocusChangeListener value) {
+        textInputFocusChangeListener = value;
+    }
+
+    public View.OnFocusChangeListener getOnFocusChangeListener() {
+        return textInputFocusChangeListener;
     }
 }

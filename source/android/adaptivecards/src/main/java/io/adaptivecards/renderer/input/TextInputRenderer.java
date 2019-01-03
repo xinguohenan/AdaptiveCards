@@ -143,14 +143,14 @@ public class TextInputRenderer extends BaseCardElementRenderer
     }
 
     protected EditText renderInternal(
-            RenderedAdaptiveCard renderedCard,
-            Context context,
-            ViewGroup viewGroup,
-            BaseInputElement baseInputElement,
-            String value,
-            String placeHolder,
-            final TextInputHandler textInputHandler,
-            HostConfig hostConfig)
+        final RenderedAdaptiveCard renderedCard,
+        Context context,
+        ViewGroup viewGroup,
+        BaseInputElement baseInputElement,
+        String value,
+        String placeHolder,
+        final TextInputHandler textInputHandler,
+        HostConfig hostConfig)
     {
         EditText editText = new EditText(context);
         textInputHandler.setView(editText);
@@ -166,6 +166,14 @@ public class TextInputRenderer extends BaseCardElementRenderer
         {
             editText.setHint(placeHolder);
         }
+        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (renderedCard.getOnFocusChangeListener() != null) {
+                    renderedCard.getOnFocusChangeListener().onFocusChange(v, hasFocus);
+                }
+            }
+        });
         editText.addTextChangedListener(new TextWatcher()
         {
             @Override
@@ -177,7 +185,6 @@ public class TextInputRenderer extends BaseCardElementRenderer
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count)
             {
-
             }
 
             @Override

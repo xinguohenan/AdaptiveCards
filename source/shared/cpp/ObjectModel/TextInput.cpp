@@ -10,6 +10,12 @@ TextInput::TextInput() :
     PopulateKnownPropertiesSet();
 }
 
+TextInput::TextInput(CardElementType elementTyoe) :
+    BaseInputElement(elementTyoe), m_isMultiline(false), m_maxLength(0), m_style(TextInputStyle::Text)
+{
+    PopulateKnownPropertiesSet();
+}
+
 Json::Value TextInput::SerializeToJsonValue() const
 {
     Json::Value root = BaseInputElement::SerializeToJsonValue();

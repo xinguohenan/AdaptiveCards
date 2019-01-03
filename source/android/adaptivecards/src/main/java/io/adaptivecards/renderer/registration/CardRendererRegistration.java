@@ -33,6 +33,7 @@ import io.adaptivecards.renderer.IBaseCardElementRenderer;
 import io.adaptivecards.renderer.input.ChoiceSetInputRenderer;
 import io.adaptivecards.renderer.input.DateInputRenderer;
 import io.adaptivecards.renderer.input.NumberInputRenderer;
+import io.adaptivecards.renderer.input.PeoplePickerInputRenderer;
 import io.adaptivecards.renderer.input.TextInputRenderer;
 import io.adaptivecards.renderer.input.TimeInputRenderer;
 import io.adaptivecards.renderer.input.ToggleInputRenderer;
@@ -64,6 +65,7 @@ public class CardRendererRegistration
 
         // Register Input Renderers
         registerRenderer(AdaptiveCardObjectModel.CardElementTypeToString(CardElementType.TextInput), TextInputRenderer.getInstance());
+        registerRenderer(AdaptiveCardObjectModel.CardElementTypeToString(CardElementType.PeoplePickerInput), PeoplePickerInputRenderer.getInstance());
         registerRenderer(AdaptiveCardObjectModel.CardElementTypeToString(CardElementType.NumberInput), NumberInputRenderer.getInstance());
         registerRenderer(AdaptiveCardObjectModel.CardElementTypeToString(CardElementType.DateInput), DateInputRenderer.getInstance());
         registerRenderer(AdaptiveCardObjectModel.CardElementTypeToString(CardElementType.TimeInput), TimeInputRenderer.getInstance());

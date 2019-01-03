@@ -38,7 +38,11 @@ public class TextInput extends BaseInputElement {
   }
 
   public TextInput() {
-    this(AdaptiveCardObjectModelJNI.new_TextInput(), true);
+    this(AdaptiveCardObjectModelJNI.new_TextInput__SWIG_0(), true);
+  }
+
+  public TextInput(CardElementType elementType) {
+    this(AdaptiveCardObjectModelJNI.new_TextInput__SWIG_1(elementType.swigValue()), true);
   }
 
   public JsonValue SerializeToJsonValue() {

@@ -104,6 +104,7 @@ public enum AdaptiveCardSchemaKey {
   Monospace,
   NumberInput,
   Padding,
+  PeoplePickerInput,
   Placeholder,
   PlayButton,
   Poster,

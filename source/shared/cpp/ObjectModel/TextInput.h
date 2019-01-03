@@ -11,6 +11,7 @@ namespace AdaptiveSharedNamespace
     {
     public:
         TextInput();
+		TextInput(CardElementType elementType);
 
         Json::Value SerializeToJsonValue() const override;
 
