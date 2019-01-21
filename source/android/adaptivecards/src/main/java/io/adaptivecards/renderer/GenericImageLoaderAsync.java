@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 
 import com.pixplicity.sharp.Sharp;
@@ -55,6 +56,10 @@ public abstract class GenericImageLoaderAsync extends AsyncTask<String, Void, Ht
                 {
                     return loadDataUriImage(path, m_maxWidth);
                 }
+            }
+            else if (path.startsWith("content:"))
+            {
+                return loadLocalContentImage(context, path);
             }
 
             // Try loading online using only the path first
@@ -132,6 +137,12 @@ public abstract class GenericImageLoaderAsync extends AsyncTask<String, Void, Ht
 
         // Get image identifier
         Resources resources = context.getResources();
+
+        if (url.startsWith("package:"))
+        {
+            url = url.replace("package:", "");
+        }
+
         int identifier = resources.getIdentifier(url, imageBaseUrl, authority);
         if (identifier == 0)
         {
@@ -147,6 +158,20 @@ public abstract class GenericImageLoaderAsync extends AsyncTask<String, Void, Ht
         }
 
         return new HttpRequestResult<>(bitmap);
+    }
+
+    private HttpRequestResult<Bitmap> loadLocalContentImage(Context context, String url) throws IOException
+    {
+        Uri uri = Uri.parse(url);
+        Bitmap bm = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(uri));
+        bm = styleBitmap(bm);
+
+        if (bm == null)
+        {
+            throw  new IOException("Failed to convert local content image to bitmap: " + url);
+        }
+
+        return new HttpRequestResult<>(bm);
     }
 
     private HttpRequestResult<Bitmap> loadDataUriImage(String uri, int maxWidth) throws Exception
