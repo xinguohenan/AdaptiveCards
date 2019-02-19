@@ -549,16 +549,7 @@ public class AdaptiveCardObjectModelJNI {
   public final static native void delete_NumberInputParser(long jarg1);
   public final static native long NumberInputParser_Deserialize(long jarg1, NumberInputParser jarg1_, long jarg2, ParseContext jarg2_, long jarg3, JsonValue jarg3_);
   public final static native long NumberInputParser_DeserializeFromString(long jarg1, NumberInputParser jarg1_, long jarg2, ParseContext jarg2_, String jarg3);
-  public final static native long new_PeoplePickerInput();
-  public final static native long PeoplePickerInput_dynamic_cast(long jarg1, BaseCardElement jarg1_);
-  public final static native void delete_PeoplePickerInput(long jarg1);
-  public final static native long new_PeoplePickerInputParser__SWIG_0();
-  public final static native long new_PeoplePickerInputParser__SWIG_1(long jarg1, PeoplePickerInputParser jarg1_);
-  public final static native void delete_PeoplePickerInputParser(long jarg1);
-  public final static native long PeoplePickerInputParser_Deserialize(long jarg1, PeoplePickerInputParser jarg1_, long jarg2, ParseContext jarg2_, long jarg3, JsonValue jarg3_);
-  public final static native long PeoplePickerInputParser_DeserializeFromString(long jarg1, PeoplePickerInputParser jarg1_, long jarg2, ParseContext jarg2_, String jarg3);
-  public final static native long new_TextInput__SWIG_0();
-  public final static native long new_TextInput__SWIG_1(int jarg1);
+  public final static native long new_TextInput();
   public final static native long TextInput_SerializeToJsonValue(long jarg1, TextInput jarg1_);
   public final static native String TextInput_GetPlaceholder(long jarg1, TextInput jarg1_);
   public final static native void TextInput_SetPlaceholder(long jarg1, TextInput jarg1_, String jarg2);
@@ -1069,7 +1060,6 @@ public class AdaptiveCardObjectModelJNI {
   public final static native long DateInputParser_SWIGSmartPtrUpcast(long jarg1);
   public final static native long NumberInput_SWIGSmartPtrUpcast(long jarg1);
   public final static native long NumberInputParser_SWIGSmartPtrUpcast(long jarg1);
-  public final static native long PeoplePickerInputParser_SWIGSmartPtrUpcast(long jarg1);
   public final static native long TextInput_SWIGSmartPtrUpcast(long jarg1);
   public final static native long TextInputParser_SWIGSmartPtrUpcast(long jarg1);
   public final static native long TimeInput_SWIGSmartPtrUpcast(long jarg1);

@@ -80,7 +80,6 @@ struct tm {
 #include "../../../shared/cpp/ObjectModel/ChoiceSetInput.h"
 #include "../../../shared/cpp/ObjectModel/DateInput.h"
 #include "../../../shared/cpp/ObjectModel/NumberInput.h"
-#include "../../../shared/cpp/ObjectModel/PeoplePickerInput.h"
 #include "../../../shared/cpp/ObjectModel/TextInput.h"
 #include "../../../shared/cpp/ObjectModel/TimeInput.h"
 #include "../../../shared/cpp/ObjectModel/ToggleInput.h"
@@ -124,7 +123,6 @@ struct tm {
 %shared_ptr(AdaptiveCards::ChoiceSetInput)
 %shared_ptr(AdaptiveCards::DateInput)
 %shared_ptr(AdaptiveCards::NumberInput)
-%shared_ptr(AdaptiveCards::PeoplePickerInput)
 %shared_ptr(AdaptiveCards::TextInput)
 %shared_ptr(AdaptiveCards::TimeInput)
 %shared_ptr(AdaptiveCards::ToggleInput)
@@ -143,7 +141,6 @@ struct tm {
 %shared_ptr(AdaptiveCards::FactSetParser)
 %shared_ptr(AdaptiveCards::ChoiceSetInputParser)
 %shared_ptr(AdaptiveCards::NumberInputParser)
-%shared_ptr(AdaptiveCards::PeoplePickerInputParser)
 %shared_ptr(AdaptiveCards::TextInputParser)
 %shared_ptr(AdaptiveCards::TimeInputParser)
 %shared_ptr(AdaptiveCards::ToggleInputParser)
@@ -484,21 +481,6 @@ namespace Json {
     }
 };
 
-%exception AdaptiveCards::PeoplePickerInput::dynamic_cast(AdaptiveCards::BaseCardElement *baseCardElement) {
-    $action
-    if (!result) {
-        jclass excep = jenv->FindClass("java/lang/ClassCastException");
-        if (excep) {
-            jenv->ThrowNew(excep, "dynamic_cast exception");
-        }
-    }
-}
-%extend AdaptiveCards::PeoplePickerInput {
-    static AdaptiveCards::PeoplePickerInput *dynamic_cast(AdaptiveCards::BaseCardElement *baseCardElement) {
-        return dynamic_cast<AdaptiveCards::PeoplePickerInput *>(baseCardElement);
-    }
-};
-
 %exception AdaptiveCards::TextInput::dynamic_cast(AdaptiveCards::BaseCardElement *baseCardElement) {
     $action
     if (!result) {
@@ -641,7 +623,6 @@ namespace Json {
 %include "../../../shared/cpp/ObjectModel/ChoiceSetInput.h"
 %include "../../../shared/cpp/ObjectModel/DateInput.h"
 %include "../../../shared/cpp/ObjectModel/NumberInput.h"
-%include "../../../shared/cpp/ObjectModel/PeoplePickerInput.h"
 %include "../../../shared/cpp/ObjectModel/TextInput.h"
 %include "../../../shared/cpp/ObjectModel/TimeInput.h"
 %include "../../../shared/cpp/ObjectModel/ToggleInput.h"

@@ -25,7 +25,6 @@ public enum CardElementType {
   NumberInput,
   TextInput,
   TimeInput,
-  PeoplePickerInput,
   ToggleInput,
   Custom,
   Unknown,
